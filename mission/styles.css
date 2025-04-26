@@ -1,0 +1,64 @@
+body {
+    margin: 40px;
+    font-family: 'Georgia', serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    color: lightblue;
+    text-align: center;
+    margin: 40px;
+}
+hr{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.content {
+    max-width: 700px;
+    padding: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border: 1px solid black;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    justify-content: center;
+    margin: 40px;
+}
+
+p {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #000;
+    text-align: left;
+    margin: 40px;
+}
+ol {
+    text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-family: 'Georgia', serif;
+    color: #000;
+}
+ol li {
+    margin-bottom: 15px;
+}
+footer {
+    margin-top: 40px;
+}
+#fancy {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: #000;
+    text-align: left;
+    font-style: italic;
+}
+img {
+    max-width: 100%;
+    height: 100px
+}
