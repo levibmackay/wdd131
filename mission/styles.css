@@ -1,22 +1,31 @@
 body {
     margin: 40px;
-    font-family: 'Georgia', serif;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 50vh;
+    
+}
+h1 {
+    letter-spacing: 4px;
+    font-size: 40px;
 }
 h2 {
-    font-family: 'Georgia', serif;
-    font-size: 1.2rem;
-    color: lightblue;
+    font-family: 'Times New Roman', serif;
+    font-size: 15px;
+    color: #006EB6;
     text-align: center;
-    margin: 40px;
+    margin: 0 auto;
+    letter-spacing: 4px;
+    padding-bottom: 10px;
 }
 hr{
     padding-left: 100px;
     padding-right: 100px;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .content {
@@ -26,33 +35,40 @@ hr{
     padding-right: 100px;
     border: 1px solid black;
     text-align: center;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
     justify-content: center;
-    margin: 40px;
+    line-height: 1.5;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 p {
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
     color: #000;
     text-align: left;
-    margin: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 ol {
     text-align: left;
     padding-left: 100px;
     padding-right: 100px;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
     color: #000;
 }
 ol li {
     margin-bottom: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 footer {
     margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 #fancy {
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
     font-size: 1.5rem;
     color: #000;
     text-align: left;
@@ -60,5 +76,5 @@ footer {
 }
 img {
     max-width: 100%;
-    height: 100px
+    height: 150px
 }
