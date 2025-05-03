@@ -89,6 +89,9 @@ body.dark {
     background-color: #333;
     color: #f0f0f0;
 }
+body.dark .content {
+    border: 2px solid white;
+}
 body.dark p,
 body.dark li,
 body.dark h1,
