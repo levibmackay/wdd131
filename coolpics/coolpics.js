@@ -22,6 +22,14 @@ const gallery = document.querySelector(".gallery");
 const modal = document.createElement("dialog");
 document.body.appendChild(modal);
 
+function viewerTemplate(src, alt) {
+  return `
+    <img src="${src}" alt="${alt}">
+    <button class="close-viewer">X</button>
+  `;
+}
+
+//So this is where I got lost ngl
 gallery.addEventListener("click", (event) => {
   const img = event.target.closest("img");
   if (!img) return;
@@ -30,12 +38,7 @@ gallery.addEventListener("click", (event) => {
   const alt = img.getAttribute("alt");
   const newSrc = src.split("-")[0] + "-full.jpeg";
 
-  //This is where I got lost.
-  modal.innerHTML = `
-    <img src="${newSrc}" alt="${alt}">
-    <button class="close-viewer">X</button>
-  `;
-
+  modal.innerHTML = viewerTemplate(newSrc, alt);
   modal.showModal();
 
   const closeBtn = modal.querySelector(".close-viewer");
