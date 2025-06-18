@@ -279,3 +279,31 @@ const recipes = [
 		rating: 4
 	}
 ]
+
+document.addEventListener("DOMContentLoaded", () => {
+	const container = document.getElementById("recipesContainer");
+
+	recipes.forEach((recipe) => {
+		const card = document.createElement("div");
+		card.classList.add("recipe-card");
+
+		const tagsHTML = recipe.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ");
+		const filledStars = Math.floor(recipe.rating);
+		const emptyStars = 5 - filledStars;
+		let starsHTML = `<span class="rating" role="img" aria-label="Rating: ${recipe.rating} out of 5 stars">`;
+		starsHTML += '⭐'.repeat(filledStars) + '☆'.repeat(emptyStars);
+		starsHTML += `</span>`;
+
+		card.innerHTML = `
+			<img src="${recipe.image}" alt="${recipe.name}" />
+			<div>
+				${tagsHTML}
+				<h2>${recipe.name}</h2>
+				${starsHTML}
+				<p class="description">${recipe.description}</p>
+			</div>
+		`;
+
+		container.appendChild(card);
+	});
+});
