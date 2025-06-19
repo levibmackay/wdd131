@@ -192,11 +192,17 @@ footer {
   .footer-social {
     margin-top: 0;
   }
+  .container {
+    width: 600px;
+  }
 }
 
 /* Large screen breakpoint */
 @media (min-width: 960px) {
   form input[type="text"] {
     width: 60%;
+  }
+  .container {
+    width: 800px;
   }
 }
