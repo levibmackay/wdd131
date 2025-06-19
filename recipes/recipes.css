@@ -139,6 +139,42 @@ footer p {
 .social {
   margin-top: 1rem;
 }
+footer {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  font-size: 0.6em;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.social a img {
+  width: 28px;
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .attribution {
+    margin: 0;
+  }
+
+  .social {
+    margin-top: 0;
+  }
+}
+
 
 .social a img {
   width: 28px;
