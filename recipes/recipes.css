@@ -145,6 +145,10 @@ footer p {
   margin: 0 0.5rem;
 }
 
+#recipesContainer {
+  min-height: 800px; 
+
+
 @media (min-width: 600px) {
   .recipe-card {
     flex-direction: row;
