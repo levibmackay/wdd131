@@ -100,6 +100,7 @@ form button {
   object-fit: cover;
   aspect-ratio: 4 / 3;
   display: block;
+  flex-shrink: 0;
 }
 
 .recipe-card > div {
@@ -171,6 +172,7 @@ footer {
   .recipe-card img {
     width: 300px;
     height: auto;
+    flex-shrink: 0;
   }
 
   .description {
