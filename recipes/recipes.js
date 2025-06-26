@@ -307,3 +307,68 @@ document.addEventListener("DOMContentLoaded", () => {
 		container.appendChild(card);
 	});
 });
+
+function random(num) {
+  return Math.floor(Math.random() * num);
+}
+
+function getRandomListEntry(list) {
+  return list[random(list.length)];
+}
+
+function tagsTemplate(tags) {
+  return tags.map(tag => `<span class="tag">${tag}</span>`).join(" ");
+}
+
+function ratingTemplate(rating) {
+  const full = Math.floor(rating);
+  const empty = 5 - full;
+  return `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">
+    ${'⭐'.repeat(full)}${'☆'.repeat(empty)}
+  </span>`;
+}
+
+function recipeTemplate(recipe) {
+  return `
+    <div class="recipe-card">
+      <img src="${recipe.image}" alt="${recipe.name}" />
+      <div>
+        ${tagsTemplate(recipe.tags)}
+        <h2>${recipe.name}</h2>
+        ${ratingTemplate(recipe.rating)}
+        <p class="description">${recipe.description}</p>
+      </div>
+    </div>
+  `;
+}
+
+function renderRecipes(recipeList) {
+  const container = document.getElementById("recipesContainer");
+  container.innerHTML = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+}
+
+function filterRecipes(query) {
+  return recipes.filter(recipe =>
+    recipe.name.toLowerCase().includes(query) ||
+    recipe.description.toLowerCase().includes(query) ||
+    recipe.tags.some(tag => tag.toLowerCase().includes(query)) ||
+    recipe.recipeIngredient.some(ing => ing.toLowerCase().includes(query))
+  ).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function searchHandler(event) {
+  event.preventDefault();
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
+  const results = filterRecipes(query);
+  renderRecipes(results);
+}
+
+function init() {
+  const randomRecipe = getRandomListEntry(recipes);
+  renderRecipes([randomRecipe]);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("searchForm").addEventListener("submit", searchHandler);
+  init();
+});
