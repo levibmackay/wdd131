@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Site Plan</title>
+    <link type="text/css" rel="stylesheet" href="site-plan.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Gym Bro Guide Site Plan</h1>
+      <h2>Levi Mackay</h2>
+      <h2>WDD 131-03</h2>
+    </header>
+
+    <main>
+      <!-- ------------------------Steps 2-3------------------------------ -->
+      <hr />
+      <h2>Overview</h2>
+      <h3>Purpose</h3>
+      <p>
+        The purpose of this website is to help beginners build custom workout routines
+        and stay consistent with their fitness goals. It provides tools to plan workouts,
+        switch between gym and home training, and stay motivated with quotes and mindset support.
+      </p>
+
+      <h3>Audience</h3>
+      <p>
+        College students and young adults who want to get in shape but don’t know where to start,
+        or who want an easy way to keep track of workouts and motivation without paying for expensive apps.
+      </p>
+
+      <h3>Dynamic elements</h3>
+      <p>
+        - JavaScript will be used to display and filter workout routines based on gym or home selection.<br>
+        - Workouts will be stored in arrays of objects and dynamically rendered with DOM manipulation.<br>
+        - A form will allow users to save a custom plan or workout goal to <code>localStorage</code>.<br>
+        - The motivation page will include a random quote generator and a goal setter with <code>localStorage</code> support.
+      </p>
+
+      <hr />
+      <h2>Branding</h2>
+      <h3>Website Logo</h3>
+      <img src="#" alt="Logo image" />
+      <hr />
+      <h2>Style Guide</h2>
+
+      <!-- ------------------------Steps 4-8------------------------------ -->
+      <h3>Color Palette</h3>
+      Palette URL:
+      <a href="https://coolors.co/396e94-e7c24f-a43312-381d2a-aabd8c" target="_blank">
+        https://coolors.co/396e94-e7c24f-a43312-381d2a-aabd8c
+      </a>
+
+      <table class="colors">
+        <tbody>
+          <tr>
+            <th>Primary</th>
+            <th>Secondary</th>
+            <th>Accent 1</th>
+            <th>Accent 2</th>
+          </tr>
+          <tr>
+            <td class="primary">#396E94</td>
+            <td class="secondary">#E7C24F</td>
+            <td class="accent1">#A43312</td>
+            <td class="accent2">#AABD8C</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Typography</h3>
+      <h4>Heading Font: Bebas Neue</h4>
+      <h4>Paragraph Font: Open Sans</h4>
+
+      <h3>Normal paragraph example</h3>
+      <p>
+        Stay consistent, stay focused, and trust the process. Fitness is a journey, not a destination.
+      </p>
+
+      <h3>Colored paragraph example</h3>
+      <p class="colored">
+        Train hard, rest well, and fuel your body. Your future self will thank you.
+      </p>
+
+      <!-- ------------------------Step 10------------------------------ -->
+
+      <h3>Navigation</h3>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Workouts</a>
+        <a href="#">Motivation</a>
+      </nav>
+
+      <hr />
+      <h2>Content</h2>
+
+      <h3>Home page</h3>
+      <p>
+        The home page will feature a hero banner with the logo and tagline, a
+        short welcome blurb, and a toggle or dropdown menu to choose between
+        "Home Workouts" or "Gym Workouts." Based on the selection, workouts will
+        display below in card format with name, sets/reps, and a short description.
+        A button will allow the user to "Add to Plan," saving the selection to
+        <code>localStorage</code>. Responsive layout and modern CSS styling will
+        ensure readability and accessibility on all devices.
+      </p>
+
+      <h3>Motivation Page</h3>
+      <p>
+        The second page will focus on motivation and mindset. A JavaScript-powered
+        quote generator will show a new quote each time the page is loaded or when
+        the user clicks a button. Below, a short list of mental tips (e.g., “Discipline
+        over motivation”) will be shown. The user can enter a fitness goal into a form
+        that saves to <code>localStorage</code> and is displayed beneath the input.
+        This page is built to inspire and help users stay committed.
+      </p>
+
+      <h2>Wireframes</h2>
+      <p>
+        Create two wireframes for your site. One for each page and list them here.
+      </p>
+
+      <h3>Home</h3>
+      <p>
+        Displays a toggle to choose workout type, shows filtered workout cards,
+        includes an "Add to Plan" button for each card.
+      </p>
+      <img src="images/home-wireframe.jpg" alt="home page wireframe" />
+
+      <h3>Motivation Page</h3>
+      <p>
+        Includes a quote section with a button, a mindset tips section, and a goal
+        input with saved display area. Responsive layout focused on clarity and
+        positivity.
+      </p>
+      <img src="images/motivation-wireframe.jpg" alt="motivation page wireframe" />
+    </main>
+  </body>
+</html>
