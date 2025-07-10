@@ -100,18 +100,19 @@ nav a:hover {
 }
 
 .hero {
-    background-color: var(--accent2-color);
+    
     text-align: center;
     padding: 3rem 1rem;
+    width: 80%;
 }
 
 .hero-image {
     width: 80%;
     height: auto;
-    background-color: var(--accent1-color);
     display: block;
-    
+    padding: 20px;
     object-fit: cover;
+    color: none;
 }
 
 .hero-btn {
@@ -211,4 +212,28 @@ footer nav a:hover {
     color: var(--secondary-color);
     text-decoration: none;
     font-weight: bold;
+}
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    background-color: var(--accent2-color);
+    width: 100%;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.hero-section .hero-image {
+    flex: 1 1 50%;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero-section .intro {
+    flex: 1 1 40%;
+    min-width: 280px;
 }
