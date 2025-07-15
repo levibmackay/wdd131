@@ -1,0 +1,257 @@
+//Workouts to be sorted and filtered
+const workouts = [
+    {
+        title: "Bench Press",
+        description: "Classic chest-building barbell press done in the gym.",
+        image: "./images/bench-press.jpg",
+        muscle: "chest",
+        location: "gym",
+        difficulty: 3
+    },
+    {
+        title: "Push Ups",
+        description: "Perfect chest workout you can do anywhere.",
+        image: "./images/push-ups.jpg",
+        muscle: "chest",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Plank",
+        description: "Works your core and stability muscles.",
+        image: "./images/plank.jpg",
+        muscle: "core",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Deadlift",
+        description: "Heavy compound lift for your back and legs.",
+        image: "./images/deadlift.jpg",
+        muscle: "back",
+        location: "gym",
+        difficulty: 4
+    },
+    {
+        title: "Bodyweight Squats",
+        description: "Burn those quads without any equipment.",
+        image: "./images/bodyweight-squats.jpg",
+        muscle: "legs",
+        location: "home",
+        difficulty: 1
+    },
+    {
+        title: "Incline Push Ups",
+        description: "Easier push-up variation targeting upper chest.",
+        image: "./images/incline-pushups.jpg",
+        muscle: "chest",
+        location: "home",
+        difficulty: 1
+    },
+    {
+        title: "Dumbbell Bench Press",
+        description: "Chest press using dumbbells instead of a barbell.",
+        image: "./images/dumbbell-bench.jpg",
+        muscle: "chest",
+        location: "gym",
+        difficulty: 3
+    },
+    {
+        title: "Pull Ups",
+        description: "Back and biceps compound bodyweight movement.",
+        image: "./images/pullups.jpg",
+        muscle: "back",
+        location: "gym",
+        difficulty: 4
+    },
+    {
+        title: "Resistance Band Rows",
+        description: "Back rows using bands at home.",
+        image: "./images/band-rows.jpg",
+        muscle: "back",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Bulgarian Split Squats",
+        description: "Unilateral leg strength builder.",
+        image: "./images/bulgarian.jpg",
+        muscle: "legs",
+        location: "home",
+        difficulty: 3
+    },
+    {
+        title: "Leg Press",
+        description: "Machine exercise for quads and glutes.",
+        image: "./images/leg-press.jpg",
+        muscle: "legs",
+        location: "gym",
+        difficulty: 3
+    },
+    {
+        title: "Bicep Curls",
+        description: "Dumbbell curls for bigger biceps.",
+        image: "./images/bicep-curls.jpg",
+        muscle: "arms",
+        location: "gym",
+        difficulty: 2
+    },
+    {
+        title: "Diamond Push Ups",
+        description: "Bodyweight triceps and chest exercise.",
+        image: "./images/diamond-pushups.jpg",
+        muscle: "arms",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Lateral Raises",
+        description: "Isolate side delts with light dumbbells.",
+        image: "./images/lateral-raises.jpg",
+        muscle: "shoulders",
+        location: "gym",
+        difficulty: 2
+    },
+    {
+        title: "Pike Push Ups",
+        description: "Shoulder builder using bodyweight.",
+        image: "./images/pike-pushups.jpg",
+        muscle: "shoulders",
+        location: "home",
+        difficulty: 3
+    },
+    {
+        title: "Crunches",
+        description: "Basic core activation exercise.",
+        image: "./images/crunches.jpg",
+        muscle: "core",
+        location: "home",
+        difficulty: 1
+    },
+    {
+        title: "Hanging Leg Raises",
+        description: "Advanced core move using pull-up bar.",
+        image: "./images/hanging-legs.jpg",
+        muscle: "core",
+        location: "gym",
+        difficulty: 4
+    },
+    {
+        title: "Overhead Press",
+        description: "Barbell press for shoulders.",
+        image: "./images/overhead-press.jpg",
+        muscle: "shoulders",
+        location: "gym",
+        difficulty: 3
+    },
+    {
+        title: "Wall Sit",
+        description: "Static leg burn using a wall.",
+        image: "./images/wallsit.jpg",
+        muscle: "legs",
+        location: "home",
+        difficulty: 1
+    },
+    {
+        title: "Cable Tricep Pushdowns",
+        description: "Triceps isolation using cable machine.",
+        image: "./images/tricep-pushdown.jpg",
+        muscle: "arms",
+        location: "gym",
+        difficulty: 2
+    },
+    {
+        title: "Hammer Curls",
+        description: "Variation of curls targeting brachialis.",
+        image: "./images/hammer-curls.jpg",
+        muscle: "arms",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Russian Twists",
+        description: "Core rotation movement with or without weight.",
+        image: "./images/russian-twists.jpg",
+        muscle: "core",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Seated Cable Row",
+        description: "Back builder using a cable row machine.",
+        image: "./images/seated-row.jpg",
+        muscle: "back",
+        location: "gym",
+        difficulty: 3
+    },
+    {
+        title: "Step-Ups",
+        description: "Bodyweight or weighted leg exercise.",
+        image: "./images/step-ups.jpg",
+        muscle: "legs",
+        location: "home",
+        difficulty: 2
+    },
+    {
+        title: "Chest Fly (Machine)",
+        description: "Chest isolation using fly machine.",
+        image: "./images/chest-fly.jpg",
+        muscle: "chest",
+        location: "gym",
+        difficulty: 2
+    }
+
+];
+
+//I need to do something similar to the mission.js file, where I can have them all be displayed on the page, but then have the css change
+//and hide them when I filter them
+function hide() {
+    const filter1 = document.getElementById('muscle-group').value;
+    const filter2 = document.getElementById('workout-location').value;
+
+    const allCards = document.querySelectorAll('.workout-card');
+
+    allCards.forEach(card => {
+        const muscle = card.getAttribute('data-muscle');
+        const location = card.getAttribute('data-location');
+
+        const matchesMuscle = (filter1 === 'all' || muscle === filter1);
+        const matchesLocation = (filter2 === 'all' || location === filter2);
+
+        if (matchesMuscle && matchesLocation) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+
+function createWorkoutCards() {
+  const container = document.getElementById('workout-cards');
+
+  for (let i = 0; i < workouts.length; i++) {
+    const workout = workouts[i];
+
+    const card = document.createElement('div');
+    card.classList.add('workout-card');
+    card.id = workout.title.toLowerCase().replace(/ /g, '-');
+    card.setAttribute('data-muscle', workout.muscle);
+    card.setAttribute('data-location', workout.location);
+
+    // Add the content
+    card.innerHTML = `
+      <h2>${workout.title}</h2>
+      <p>${workout.description}</p>
+    `;
+
+    container.appendChild(card);
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    createWorkoutCards();
+    document.getElementById('muscle-group').addEventListener('change', hide);
+    document.getElementById('workout-location').addEventListener('change', hide);
+});

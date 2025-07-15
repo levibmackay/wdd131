@@ -5,26 +5,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gym Bro Guide - Home</title>
-    <link rel="stylesheet" href="..//final_poject/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./final-project.js" defer></script>
 </head>
 
 <body>
-    <div class="container2">
-        <header>
-            <img src="..//final_poject/images/logo.png" alt="Gym Bro Guide Logo" class="logo" />
-            <div class="containter">
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="btn-primary">Home</a></li>
-                        <li><a href="motivation.html" class="btn-primary">Motivation</a></li>
-                    </ul>
-                </nav>
+    <div class="container">
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Gym Bro Guide Logo" class="logo" />
             </div>
+            <h1 class="site-title">Gym Bro Guide</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="btn">Home</a></li>
+                    <li><a href="motivation.html" class="btn">Motivation</a></li>
+                </ul>
+            </nav>
         </header>
-
         <main>
-            <section class="hero-section">
-                <img src="..//final_poject/images/hero.jpeg" alt="Hero Banner" class="hero-image" />
+            <section class="hero">
+                <img src="images/hero.jpeg" alt="Hero Banner" class="hero-image" />
                 <section class="intro">
                     <h1>Medium length hero headline</h1>
                     <p>
@@ -34,50 +35,41 @@
                     </p>
                 </section>
             </section>
-
-            <section class="filters">
-                <label for="filter1">Filter 1:</label>
-                <select id="filter1">
-                    <option value="all">All</option>
-                    <!-- Add options -->
-                </select>
-
-                <label for="filter2">Filter 2:</label>
-                <select id="filter2">
-                    <option value="all">All</option>
-                    <!-- Add options -->
-                </select>
+            <section class="filters-wrapper">
+                <div class="filters">
+                    <label for="muscle-group">Muscle Group:</label>
+                    <select id="muscle-group">
+                        <option value="all">All</option>
+                        <option value="chest">Chest</option>
+                        <option value="back">Back</option>
+                        <option value="legs">Legs</option>
+                        <option value="arms">Arms</option>
+                        <option value="shoulders">Shoulders</option>
+                        <option value="core">Core</option>
+                    </select>
+                    <label for="workout-location">Workout Location:</label>
+                    <select id="workout-location">
+                        <option value="all">All</option>
+                        <option value="home">At Home</option>
+                        <option value="gym">Gym</option>
+                    </select>
+                </div>
             </section>
 
-            <section class="workout-grid">
-                <!-- Example workout cards -->
-                <article class="workout-card">
-                    <img src="placeholder-workout.png" alt="Workout" />
-                    <h2>Workout Title</h2>
-                    <p>Short description of the workout.</p>
-                    <button class="btn-primary">Add to Plan</button>
-                </article>
-                <!-- Repeat cards as needed -->
+            <section class="card-grid" id="workout-cards">
+                
             </section>
         </main>
 
-        <footer>
+        <footer class="main-footer">
             <div class="footer-logo">Gym Bro Guide</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Link one</a></li>
-                    <li><a href="#">Link two</a></li>
-                    <li><a href="#">Link three</a></li>
-                    <li><a href="#">Link four</a></li>
-                </ul>
-            </nav>
+
             <div class="social-icons">
-                <a href="#" aria-label="Instagram">IG</a>
-                <a href="#" aria-label="Facebook">FB</a>
-                <a href="#" aria-label="Twitter">TW</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="..//final_poject/site-plan.html">SITE PLAN</a></li>
             </div>
-            <p>© 2024 Your Website. All rights reserved.</p>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </footer>
     </div>
 </body>
