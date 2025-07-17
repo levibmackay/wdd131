@@ -211,6 +211,10 @@ function hide() {
 
     const allCards = document.querySelectorAll('.workout-card');
 
+    //Chat helped me understand this functino a little better. I wasn't quite sure how to do this.
+    //I had the same code repeating for each filter, but this way I can just check both at once.
+    //For every card, it checks if the muscle and location match the selected filters.
+    //If they match, it displays the card, otherwise it hides it.
     allCards.forEach(card => {
         const muscle = card.getAttribute('data-muscle');
         const location = card.getAttribute('data-location');
@@ -225,11 +229,25 @@ function hide() {
         }
     });
 }
+const quotes = [
+      "No excuses. Just results.",
+      "Push yourself. No one else will do it for you.",
+      "Progress, not perfection.",
+      "You don’t have to be extreme, just consistent.",
+      "Fall in love with the process.",
+      "Pain is temporary. Glory is forever.",
+      "Wake up with determination. Go to bed with satisfaction."
+    ];
+
 
 
 function createWorkoutCards() {
   const container = document.getElementById('workout-cards');
 
+  //This makes a card for every workout in the workouts array
+  // //It creates a div for each workout, sets its class and id, and adds the
+  //Originally I had it so that the HTML was already in the site and you would just hide it and then display it, but I wanted to make it more based out of the 
+  //Java script
   for (let i = 0; i < workouts.length; i++) {
     const workout = workouts[i];
 
@@ -239,7 +257,7 @@ function createWorkoutCards() {
     card.setAttribute('data-muscle', workout.muscle);
     card.setAttribute('data-location', workout.location);
 
-    // Add the content
+    // Adds the content
     card.innerHTML = `
       <h2>${workout.title}</h2>
       <p>${workout.description}</p>
