@@ -200,14 +200,13 @@ const workouts = [
         location: "gym",
         difficulty: 2
     }
-
 ];
 
 //I need to do something similar to the mission.js file, where I can have them all be displayed on the page, but then have the css change
 //and hide them when I filter them
 function hide() {
-    const filter1 = document.getElementById('muscle-group').value;
-    const filter2 = document.getElementById('workout-location').value;
+    const filter1 = document.getElementById('muscle-group')?.value || 'all';
+    const filter2 = document.getElementById('workout-location')?.value || 'all';
 
     const allCards = document.querySelectorAll('.workout-card');
 
@@ -230,46 +229,90 @@ function hide() {
     });
 }
 const quotes = [
-      "No excuses. Just results.",
-      "Push yourself. No one else will do it for you.",
-      "Progress, not perfection.",
-      "You don’t have to be extreme, just consistent.",
-      "Fall in love with the process.",
-      "Pain is temporary. Glory is forever.",
-      "Wake up with determination. Go to bed with satisfaction."
-    ];
-
+    "No excuses. Just results.",
+    "Push yourself. No one else will do it for you.",
+    "Progress, not perfection.",
+    "You don’t have to be extreme, just consistent.",
+    "Fall in love with the process.",
+    "Pain is temporary. Glory is forever.",
+    "Wake up with determination. Go to bed with satisfaction."
+];
 
 
 function createWorkoutCards() {
-  const container = document.getElementById('workout-cards');
+    const container = document.getElementById('workout-cards');
+    if (!container) return; // fixes issue if this section doesn't exist on another page
 
-  //This makes a card for every workout in the workouts array
-  // //It creates a div for each workout, sets its class and id, and adds the
-  //Originally I had it so that the HTML was already in the site and you would just hide it and then display it, but I wanted to make it more based out of the 
-  //Java script
-  for (let i = 0; i < workouts.length; i++) {
-    const workout = workouts[i];
+    //This makes a card for every workout in the workouts array
+    //It creates a div for each workout, sets its class and id, and adds the
+    //Originally I had it so that the HTML was already in the site and you would just hide it and then display it, but I wanted to make it more based out of the 
+    //Java script
+    for (let i = 0; i < workouts.length; i++) {
+        const workout = workouts[i];
 
-    const card = document.createElement('div');
-    card.classList.add('workout-card');
-    card.id = workout.title.toLowerCase().replace(/ /g, '-');
-    card.setAttribute('data-muscle', workout.muscle);
-    card.setAttribute('data-location', workout.location);
+        const card = document.createElement('div');
+        card.classList.add('workout-card');
+        card.id = workout.title.toLowerCase().replace(/ /g, '-');
+        card.setAttribute('data-muscle', workout.muscle);
+        card.setAttribute('data-location', workout.location);
 
-    // Adds the content
-    card.innerHTML = `
+        // Adds the content
+        card.innerHTML = `
       <h2>${workout.title}</h2>
       <p>${workout.description}</p>
     `;
 
-    container.appendChild(card);
-  }
+        container.appendChild(card);
+    }
 }
 
+function generateQuotes() {
+    //Gets the div in the html where the quotes gonna go
+    const container = document.getElementById("quote-cards");
+    if (!container) return; // skip this if not on the page with quote cards
 
+    //Clears the container before adding new quotes
+    container.innerHTML = "";
+    //Keeps track of which of them has been shown
+    const shown = [];
+
+    //Then I used a while loop to keep adding quotes until there are 3 shown
+    //I also didn't want to show the same quote twice, so I used an array to keep track of which ones have been shown
+    //JS like this reminds me of python, which is super helpful for me
+    while (shown.length < 3) {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        if (!shown.includes(randomIndex)) {
+            shown.push(randomIndex);
+
+            const quote = quotes[randomIndex];
+            const card = document.createElement("div");
+            card.className = "quote-card";
+            card.innerHTML = `
+        <h2>${quote}</h2>
+        `;
+            container.appendChild(card);
+        }
+    }
+}
+
+//Keeps track of how many workouts have been added
+//this is pretty basic, but I wanted to have a counter that updates when you click the button
+let workoutCount = 0;
+
+document.getElementById("add-workout")?.addEventListener("click", function () {
+    workoutCount++;
+    const counter = document.getElementById("workout-count");
+    if (counter) counter.textContent = workoutCount;
+});
+
+//DOM
 document.addEventListener('DOMContentLoaded', function () {
     createWorkoutCards();
-    document.getElementById('muscle-group').addEventListener('change', hide);
-    document.getElementById('workout-location').addEventListener('change', hide);
+
+    //Only attach filter handlers if the dropdowns exist
+    document.getElementById('muscle-group')?.addEventListener('change', hide);
+    document.getElementById('workout-location')?.addEventListener('change', hide);
+
+    //Motivation button
+    document.querySelector('.motivation-btn')?.addEventListener('click', generateQuotes);
 });
