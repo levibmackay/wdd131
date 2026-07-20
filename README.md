@@ -44,6 +44,7 @@ No build or install step is required.
 
 - The `final_poject` folder name is a typo carried over from when the assignment was created; it's left as-is to match the folder structure already referenced by existing links.
 - A stray `MySQL Workbench community-8.0.43` file at the repo root is a macOS alias left over from an unrelated local download — it isn't part of any assignment and can be ignored/removed.
+- See [`NOTES.md`](NOTES.md) for a running list of known issues (broken image/script references, incomplete pages) and ideas for future cleanup.
 
 ## Author
 
